@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Meeting Task Assignment</title>
+    <link rel="stylesheet" href="..\static\css\style.css">
+</head>
+<body>
+
+<h1>Meeting Task Assignment</h1>
+
+<!-- AUDIO UPLOAD -->
+<div class="box">
+    <h2>Upload Meeting Audio</h2>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="audio" required>
+        <button type="submit">Process</button>
+    </form>
+</div>
+
+<!-- TASK LIST -->
+<div class="box">
+    <h2>Tasks</h2>
+    <a href="/tasks/clear" class="btn-red">Clear All</a>
+
+    <table>
+        <tr>
+            <th>Task</th>
+            <th>Assigned To</th>
+            <th>Priority</th>
+            <th>Deadline</th>
+            <th>Dependencies</th>
+            <th>Action</th>
+        </tr>
+
+        {% for t in tasks %}
+        <tr>
+            <td>{{ t.task }}</td>
+            <td>{{ t.assigned_to }}</td>
+            <td>{{ t.priority }}</td>
+            <td>{{ t.deadline }}</td>
+            <td>
+                {% if t.dependencies and t.dependencies|length > 0 %}
+                    {{ t.dependencies | join(', ') }}
+                {% else %}
+                    None
+                {% endif %}
+            </td>
+            <td><a class="btn-red" href="/tasks/delete/{{ t.id }}">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<!-- TEAM LIST -->
+<div class="box">
+    <h2>Team Members</h2>
+
+    <h3>Add New Member</h3>
+    <form action="/team/add" method="post">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="text" name="role" placeholder="Role" required>
+        <input type="text" name="skills" placeholder="Skills (comma separated)" required>
+        <button type="submit">Add</button>
+    </form>
+
+    <table>
+        <tr><th>Name</th><th>Role</th><th>Skills</th><th>Action</th></tr>
+        {% for m in team %}
+        <tr>
+            <td>{{ m.name }}</td>
+            <td>{{ m.role }}</td>
+            <td>{{ m.skills | join(', ') }}</td>
+            <td><a class="btn-red" href="/team/delete/{{ m.name }}">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

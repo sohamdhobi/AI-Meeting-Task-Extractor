@@ -1,0 +1,44 @@
+[
+  {
+    "id": "04a520c2-541a-4c36-82cb-d25c7f9ac9c4",
+    "task": "Fix the critical login bug",
+    "assigned_to": "Sakshi",
+    "priority": "High",
+    "deadline": "Tomorrow evening",
+    "dependencies": []
+  },
+  {
+    "id": "21a65d69-7f12-4db2-8dbf-cf26431a3470",
+    "task": "Optimize database performance",
+    "assigned_to": "Mohit",
+    "priority": "Medium",
+    "deadline": "End of this week",
+    "dependencies": []
+  },
+  {
+    "id": "e8187951-ebdb-4c02-bec4-c0cf24b68055",
+    "task": "Update the API documentation",
+    "assigned_to": "Mohit",
+    "priority": "High",
+    "deadline": "End of this week",
+    "dependencies": []
+  },
+  {
+    "id": "9f8d5972-4d74-42ea-aca3-2844d5afd20a",
+    "task": "Design the new onboarding screens",
+    "assigned_to": "Arjun",
+    "priority": "High",
+    "deadline": "Friday",
+    "dependencies": []
+  },
+  {
+    "id": "9a2624bd-d580-46eb-ad76-642a18570ddb",
+    "task": "Write unit tests for the payment module",
+    "assigned_to": "Lata",
+    "priority": "Low",
+    "deadline": "Next Monday",
+    "dependencies": [
+      "Fix the critical login bug"
+    ]
+  }
+]
