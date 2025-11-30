@@ -53,7 +53,8 @@ An intelligent Flask-based web application that automatically transcribes meetin
 
 1. **Clone or download the project**
 ```bash
-cd meeting-task-extractor
+cd AI-Meeting-Task-Extractor
+
 ```
 
 2. **Create a virtual environment** (recommended)
